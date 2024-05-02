@@ -36,7 +36,7 @@
 
     .main {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       justify-content: space-around;
       height: 100%;
@@ -44,6 +44,13 @@
       border-top-right-radius: 80px;
       border-top-left-radius: 80px;
       border: 2px solid #191970;
+    }
+
+    .main-body {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around
     }
 
     .connessione {
@@ -68,6 +75,7 @@
 
     .conn {
       font-size: 30px;
+      visibility: none;
     }
 
     .vp {
@@ -111,6 +119,30 @@
       width: 90%;
       height: 75%;
     }
+
+    
+    .risultati {
+      width: 500px;
+      height: 800px;
+      margin-top: 30px;
+    }
+
+    .success {
+      background-color: rgb(94, 216, 94);
+      width: 100%;
+      font-size: 25px;
+      text-align: center;
+      display: none;
+    }
+
+    .error {
+      background-color: rgb(220, 60, 60);
+      width: 100%;
+      font-size: 25px;
+      text-align: center;
+      display: none;
+    }
+
   </style>
 
 </head>
@@ -120,19 +152,34 @@
   <!-- Add your site or application content here -->
   <h1>Tirocinio Masca</h1>
 
+
   <div class="main">
-    <div class="connessione">
-      <p>Clicca sul pulsante per connetterti a Masca</p>
-      <button id="connettiMasca">Connetti</button>
-      <p class="conn">Connesso!</p>
+
+    <div class="risultati">
+      <div class="success" id="success">
+        La Presentazione Verificabile (VP) è corretta 
+      </div>
+    
+      <div class="error" id="error">
+        La Presentazione Verificabile (VP) è sbagliata 
+      </div>
     </div>
 
-    <div class="vp">
-      <form>
-        <input type="text" placeholder="Incolla la Credenziale Verificabile..." id="vpText">
+    <div class="main-body">
+      <div class="connessione">
+        <p>Clicca sul pulsante per connetterti a Masca</p>
+        <button id="connettiMasca">Connetti</button>
+        <div id="caricamento" style="display: none;">
+          Caricamento in corso...
+        </div>
+      </div>
+  
+      <div class="vp">
+        <input type="text" placeholder="Incolla la Credenziale Verificabile..." id="vpText" required>
         <input type="submit" value="Verifica" id="verificaVP">
-      </form>
+      </div>
     </div>
+    
   </div>
 
   <script src="js/app.js" type="module"></script>
