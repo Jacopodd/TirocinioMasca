@@ -1,4 +1,4 @@
-import { enableMasca, isError } from '@blockchain-lab-um/masca-connector';
+import { enableMasca, isError } from '/@blockchain-lab-um/masca-connector';
 
 const connetti = document.getElementById("connettiMasca");
 
