@@ -2,16 +2,33 @@
 
 import {enableMasca} from "@blockchain-lab-um/masca-connector";
 
-const connetti = document.getElementById("connettiMasca");
 var mascaApi;
+var address;
+
+const successo = document.getElementById("success");
+const error = document.getElementById("error");
+
+const connetti = document.getElementById("connettiMasca");
 connetti.addEventListener("click", async function() {
+
+  mostraCaricamento();
+
   window.ethereum.request({
     method: 'eth_requestAccounts',
   }).then(async accounts => {
-    const address = accounts[0];
-    alert("ADDRESS: " + address);
+    address = accounts[0];
 
     const enableResult = await enableMasca(address);
+    nascondiCaricamento();
+
+    console.log("EnableResult " + enableResult.success);
+
+    if (enableResult != null) {
+      console.log("CONNESSO CON API");
+    } else {
+      console.log("CONNESSO SENZA API");
+    }
+
     mascaApi = await enableResult.data.getMascaApi();
   }).catch(error => {
     console.error("ERRORE CON METAMASK " + error);
@@ -19,45 +36,47 @@ connetti.addEventListener("click", async function() {
 
 });
 
-
 const verifica = document.getElementById("verificaVP");
+verifica.addEventListener("click", async function() {
+  var text = document.getElementById("vpText").value;
+  
+  if (text.trim() !== "") {
+    console.log("Hai inserito " + text);
 
-verifica.addEventListener("click", async function () {
-  const vpText = document.getElementById("vpText").value;
-  if (vpText.length === 0) alert("Inserisci una VP");
-  else {
-    alert("Hai inserito: " + vpText);
+    const jsonPresentation = JSON.parse(text);
+    console.log(jsonPresentation);
 
-    const vp = mascaCreatePresentation(vpText);
+    const vpRes = await mascaApi.verifyData({ presentation: jsonPresentation, verbose: true });
+    console.log("vpRes: " + JSON.stringify(vpRes));
 
-    const vpRes = await mascaApi.verifyData({presentation: vp, verbose: true});
+    console.log("RESULT: " + vpRes.success);
+    if (vpRes.success) {
+      mostraSuccesso();
+    } else mostraErrore();
 
-    /*if (vpRes) {
-      alert("La VP è corretta");
-    } else {
-      alert("La VP è sbagliata");
-    }*/
+  } else console.log("Non hai inserito nulla");
 
-  }
-});
+})
 
-async function mascaCreatePresentation(vpText) {
-  const vc = mascaCreateCredential(vpText)
-  alert("VC creata con successo");
-  return await mascaApi.createPresentation({
-    vcs: vc,
-    proofFormat: 'jwt',
-  });
+function mostraCaricamento() {
+  document.getElementById('caricamento').style.display = 'block'; 
 }
 
-function mascaCreateCredential(payload) {
-  alert("Creazione credenziale verificabile...");
-  return mascaApi.createCredential({
-    minimalUnsignedCredential: payload,
-    proofFormat: 'jwt',
-    options: {
-      save: 'true',
-      store: ['snap'],
-    },
-  });
+function nascondiCaricamento() {
+  document.getElementById('caricamento').innerText = "Connesso con Metamask!";
+}
+
+function mostraSuccesso() {
+  successo.style.display = 'block';
+  error.style.display = 'none';
+}
+
+function mostraErrore() {
+  error.style.display = 'block';
+  success.style.display = 'none';
+}
+
+function nascondiRisultati() {
+  error.style.display = 'none';
+  successo.style.display = 'none';
 }
