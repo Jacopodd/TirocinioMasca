@@ -1,0 +1,142 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #FFAC49;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      height: 100%;
+      background-color: #f1b571;
+      border-top-right-radius: 80px;
+      border-top-left-radius: 80px;
+      border: 2px solid #191970;
+    }
+
+    .connessione {
+      height: 300px;
+      padding: 10px;
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px;
+      border: 2px solid #191970;
+    }
+
+    .connessione button {
+      margin-top: 40px;
+      background-color: midnightblue;
+      height: 50px;
+      width: 80px;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .conn {
+      font-size: 30px;
+    }
+
+    .vp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 90%;
+      width: 700px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .vp form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .vp input[type="text"] {
+      height: 500px; /* Sottrae lo spazio per il pulsante */
+      margin-bottom: 10px;
+      margin-top: 30px;
+    }
+
+    .vp input[type="text"]::placeholder {
+      text-align: center; /* Allinea il testo del placeholder a sinistra */
+      padding-left: 10px; /* Aggiunge spazio a sinistra del placeholder */
+      line-height: normal;
+    }
+
+    .vp input[type="submit"] {
+      background-color: midnightblue;
+      height: 50px;
+      width: 80px;
+      color: white;
+      border-radius: 10px;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      height: 75%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Add your site or application content here -->
+  <h1>Tirocinio Masca</h1>
+
+  <div class="main">
+    <div class="connessione">
+      <p>Clicca sul pulsante per connetterti a Masca</p>
+      <button id="connettiMasca">Connetti</button>
+      <p class="conn">Connesso!</p>
+    </div>
+
+    <div class="vp">
+      <form>
+        <input type="text" placeholder="Incolla la Presentazione Verificabile...">
+        <input type="submit" value="Verifica">
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js" type="module"></script>
+
+</body>
+
+</html>
