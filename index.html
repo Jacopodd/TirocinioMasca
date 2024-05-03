@@ -50,16 +50,17 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-around
+      justify-content: space-around;
     }
 
     .connessione {
       height: 300px;
       padding: 10px;
       font-size: 20px;
-      display: flex;
+      display: flex; /*flex*/
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       border-radius: 10px;
       border: 2px solid #191970;
     }
@@ -79,7 +80,7 @@
     }
 
     .vp {
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
       height: 90%;
@@ -123,8 +124,9 @@
     
     .risultati {
       width: 500px;
-      height: 800px;
       margin-top: 30px;
+      visibility: hidden;
+      display: none;
     }
 
     .success {
@@ -143,6 +145,29 @@
       display: none;
     }
 
+    #result {
+      width: 90%;
+      height: 100%;
+      background-color: white;
+      display: none;
+      flex-direction: column;
+      padding: 30px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      border: 2px solid #191970;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      margin-top: 80px;
+      max-height: 500px;
+    }
+
+    #riprova {
+      background-color: midnightblue;
+      height: 50px;
+      width: 80px;
+      color: white;
+      border-radius: 10px;
+    }
+
   </style>
 
 </head>
@@ -155,30 +180,81 @@
 
   <div class="main">
 
-    <div class="risultati">
+    <!-- BANNER CORRETTO / SBAGLIATO-->
+    <div class="risultati" id="risultati">
       <div class="success" id="success">
         La Presentazione Verificabile (VP) è corretta 
       </div>
-    
+
       <div class="error" id="error">
         La Presentazione Verificabile (VP) è sbagliata 
       </div>
     </div>
 
+    
+
     <div class="main-body">
-      <div class="connessione">
+
+      <!-- CARD CONNESSIONE -->
+      <div class="connessione" id="connessione">
         <p>Clicca sul pulsante per connetterti a Masca</p>
         <button id="connettiMasca">Connetti</button>
         <div id="caricamento" style="display: none;">
           Caricamento in corso...
         </div>
       </div>
+
+      <!-- CARD RIEPILOGO -->
+      <div id="result">
+        <h3>Riepilogo</h3>
+        <div class="credenziale-verificabile-result">
+          <div class="vcId" style="display: flex; flex-direction: row; gap: 10px;">
+            <p style="font-weight: bold;">ID: </p> 
+            <p id="vc-id"></p>
+          </div>
   
-      <div class="vp">
+          <div class="emittente" style="display: flex; flex-direction: row; gap: 10px;">
+            <p style="font-weight: bold;">Emittente: </p>
+            <p id="issuer"></p>
+          </div>
+          
+          <div class="data-emissione" style="display: flex; flex-direction: row; gap: 10px;">
+            <p style="font-weight: bold;">Data emissione: </p>
+            <p id="issuance-date"></p>
+          </div>
+          
+          <div class="data-scadenza" style="display: flex; flex-direction: row; gap: 10px;">
+            <p style="font-weight: bold;">Data di scadenza: </p>
+            <p id="expiration-date"></p>
+          </div>
+  
+          <div class="type" style="display: flex; flex-direction: row; gap: 10px;">
+            <p style="font-weight: bold;">Tipo: </p>
+            <p id="type"></p>
+          </div>
+  
+          <div class="holder" style="max-width: 800px; overflow: hidden; display: flex; flex-direction: row; gap: 10px;">
+            <p style="font-weight: bold;">Titolare: </p>
+            <p id="holder"></p>
+          </div>
+  
+          <div class="proof" style="display: flex; flex-direction: row; gap: 10px;">
+            <p style="font-weight: bold;">Prova: </p>
+            <p id="proof"></p>
+          </div>
+        </div>
+
+        <button id="riprova">Riprova</button>
+      </div>
+  
+      <!-- FORM -->
+      <div class="vp" id="vp">
         <input type="text" placeholder="Incolla la Credenziale Verificabile..." id="vpText" required>
         <input type="submit" value="Verifica" id="verificaVP">
       </div>
     </div>
+
+    
     
   </div>
 
