@@ -21,6 +21,8 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
 
+  <link rel="stylesheet" href="css/vc.css"/>
+  <link rel="stylesheet" href="css/result.css"/>
 
   <style>
     body, html {
@@ -39,7 +41,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      height: 100%;
+      /*height: 100%;*/
       background-color: #f1b571;
       border-top-right-radius: 80px;
       border-top-left-radius: 80px;
@@ -51,10 +53,12 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
+      width: 80%;
     }
 
     .connessione {
-      height: 300px;
+      min-height: 300px;
+      min-width: 300px;
       padding: 10px;
       font-size: 20px;
       display: flex; /*flex*/
@@ -63,6 +67,8 @@
       justify-content: center;
       border-radius: 10px;
       border: 2px solid #191970;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      margin: 500px;
     }
 
     .connessione button {
@@ -79,49 +85,11 @@
       visibility: none;
     }
 
-    .vp {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      height: 90%;
-      width: 700px;
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-
-    .vp form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-
-    .vp input[type="text"] {
-      height: 500px; /* Sottrae lo spazio per il pulsante */
-      margin-bottom: 10px;
-      margin-top: 30px;
-    }
-
-    .vp input[type="text"]::placeholder {
-      text-align: center; /* Allinea il testo del placeholder a sinistra */
-      padding-left: 10px; /* Aggiunge spazio a sinistra del placeholder */
-      line-height: normal;
-    }
-
-    .vp input[type="submit"] {
-      background-color: midnightblue;
-      height: 50px;
-      width: 80px;
-      color: white;
-      border-radius: 10px;
-    }
-
     input[type="text"] {
       width: 90%;
       height: 75%;
     }
 
-    
     .risultati {
       width: 500px;
       margin-top: 30px;
@@ -143,21 +111,6 @@
       font-size: 25px;
       text-align: center;
       display: none;
-    }
-
-    #result {
-      width: 90%;
-      height: 100%;
-      background-color: white;
-      display: none;
-      flex-direction: column;
-      padding: 30px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      border: 2px solid #191970;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-      margin-top: 80px;
-      max-height: 500px;
     }
 
     #riprova {
@@ -194,7 +147,6 @@
     
 
     <div class="main-body">
-
       <!-- CARD CONNESSIONE -->
       <div class="connessione" id="connessione">
         <p>Clicca sul pulsante per connetterti a Masca</p>
@@ -204,54 +156,83 @@
         </div>
       </div>
 
-      <!-- CARD RIEPILOGO -->
-      <div id="result">
-        <h3>Riepilogo</h3>
-        <div class="credenziale-verificabile-result">
-          <div class="vcId" style="display: flex; flex-direction: row; gap: 10px;">
-            <p style="font-weight: bold;">ID: </p> 
-            <p id="vc-id"></p>
+      <!-- CARD RIEPILOGO --> <!-- CIAO -->
+      <div id="ricetta">
+        
+        <div class="titolo-ricetta">
+          <h3>Ricetta N</h3> 
+          <h3 id="idPrescrizione"></h3>
+        </div>
+
+
+        <div class="date">
+          <div class="emissione">
+            <p>Data Emissione:</p>
+            <p id="data-emissione"></p>
           </div>
-  
-          <div class="emittente" style="display: flex; flex-direction: row; gap: 10px;">
-            <p style="font-weight: bold;">Emittente: </p>
-            <p id="issuer"></p>
-          </div>
-          
-          <div class="data-emissione" style="display: flex; flex-direction: row; gap: 10px;">
-            <p style="font-weight: bold;">Data emissione: </p>
-            <p id="issuance-date"></p>
-          </div>
-          
-          <div class="data-scadenza" style="display: flex; flex-direction: row; gap: 10px;">
-            <p style="font-weight: bold;">Data di scadenza: </p>
-            <p id="expiration-date"></p>
-          </div>
-  
-          <div class="type" style="display: flex; flex-direction: row; gap: 10px;">
-            <p style="font-weight: bold;">Tipo: </p>
-            <p id="type"></p>
-          </div>
-  
-          <div class="holder" style="max-width: 800px; overflow: hidden; display: flex; flex-direction: row; gap: 10px;">
-            <p style="font-weight: bold;">Titolare: </p>
-            <p id="holder"></p>
-          </div>
-  
-          <div class="proof" style="display: flex; flex-direction: row; gap: 10px;">
-            <p style="font-weight: bold;">Prova: </p>
-            <p id="proof"></p>
+
+          <div class="scadenza">
+            <p>Data Scadenza:</p>
+            <p id="data-scadenza"></p>
           </div>
         </div>
 
-        <button id="riprova">Riprova</button>
+        <div class="paziente-ricetta">
+          <div class="nomePaziente">
+            <p>Paziente:</p>
+            <p id="paziente"></p>
+          </div>
+            
+          <!--<div class="codiceFiscalePaziente">
+            <p>Codice Fiscale:</p>
+            <p id="codiceFiscale"></p>
+          </div>-->
+        </div>
+
+        <div class="farmaci-ricetta" id="farmaci-ricetta">
+          <h4>Farmaci</h4>
+        </div>
       </div>
-  
-      <!-- FORM -->
-      <div class="vp" id="vp">
-        <input type="text" placeholder="Incolla la Credenziale Verificabile..." id="vpText" required>
-        <input type="submit" value="Verifica" id="verificaVP">
+
+      <div id="vc">
+        <div class="info-generali">
+          <div class="medicoVC">
+            <h3>Informazioni Medico</h3>
+            <input type="text" placeholder="Nome Medico" required id="nomeMedico"/>
+            <input type="text" placeholder="Numero di Registrazione" required id="numeroRegistrazione"/>
+            <input type="text" placeholder="Autorità di Licenza" required id="autoritaLicenza"/>
+          </div>
+
+          <div class="pazienteVC">
+            <h3>Informazioni paziente</h3>
+            <input type="text" placeholder="Nome Paziente" required id="nomePaziente"/>
+            <input type="text" placeholder="Codice Fiscale" required id="codiceFiscaleVC"/>
+          </div>
+        </div>
+          
+
+        <div class="ricetta">
+          <h3>Ricetta</h3>
+          <div class="info-ricetta">
+            <input type="number" placeholder="ID Ricetta" required id="idRicetta"/>
+            <input type="date" placeholder="Data scadenza" required id="dataScadenza"/>
+          </div>
+            
+
+          <h3>Farmaci</h3>
+          <div class="farmaci">
+            <input type="text" placeholder="Nome farmaco" required id="nomeFarmaco" style="width: 100px;"/>
+            <input type="text" placeholder="Dosaggio (mg)" required id="dosaggio" style="width: 100px;"/>
+            <input type="submit" value="Aggiungi" id="aggiungiFarmaco">
+          </div>
+        </div>
+
+        <input type="submit" value="Crea Credenziale" id="creaVC"/>
       </div>
+
+
+      <!-- PULSANTE TEST -->
+      <button id="test">TEST</button>
     </div>
 
     
