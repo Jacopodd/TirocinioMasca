@@ -1,0 +1,12 @@
+{
+  "@context": ["https://www.w3.org/2018/credentials/v1"],
+  "id": "urn:did:123456",
+  "type": ["VerifiableCredential"]
+  "issuer": "urn:did:9999999",
+  "issuanceDate": "2021-11-01T00:00:00Z",
+  "validFrom": "2021-11-01T00:00:00Z",
+  "issued": "2021-11-01T00:00:00Z",
+  "credentialSubject": {
+    "prescriptionID": "RM2024020"
+  }
+}

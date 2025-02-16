@@ -1,0 +1,27 @@
+{
+  "id": "987654",
+  "issuer": {
+    "nomeMedico": "Dr. Mario Rossi",
+    "numeroRegistrazioneMedica": "1234567890",
+    "autoritaLicenza": "Ministero della Salute"
+  },
+  "subject": {
+    "nome": "Mario Verdi",
+    "codiceFiscale": "VRDMRA80A01H501A"
+  },
+  "prescrizione": {
+    "idPrescrizione": "ABC123",
+    "farmaciPrescritti": [
+      {
+        "nomeFarmaco": "Paracetamolo",
+        "dosaggio": "500mg"
+      },
+      {
+        "nomeFarmaco": "Amoxicillina",
+        "dosaggio": "250mg"
+      }
+    ],
+    "dataEmissione": "2024-02-12T10:30:00Z",
+    "dataScadenza": "2024-03-12T23:59:59Z"
+  }
+}

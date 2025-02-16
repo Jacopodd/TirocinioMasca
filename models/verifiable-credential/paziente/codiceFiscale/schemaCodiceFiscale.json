@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nome Paziente",
+  "decription": "Schema del nome di un paziente",
+  "type": "object",
+  "allOf": {
+    "properties": {
+      "credentialSubject": {
+        "description": "Definisce informazioni aggiuntive sull'argomento descritto dall'ID verificabile",
+        "type": "object",
+        "properties": {
+          "taxIdCode": {
+            "description": "Definisce il codice fiscale dell'oggetto della credenziale",
+            "type": "string"
+          }
+        },
+        "required": ["taxIdCode"]
+      }
+    }
+  }
+}

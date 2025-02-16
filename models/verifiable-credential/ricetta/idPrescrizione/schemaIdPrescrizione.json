@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ID Prescrizione",
+  "decription": "Schema dell'ID di una prescrizione",
+  "type": "object",
+  "allOf": {
+    "properties": {
+      "credentialSubject": {
+        "description": "Definisce informazioni aggiuntive sull'argomento descritto dall'ID verificabile",
+        "type": "object",
+        "properties": {
+          "prescriptionID": {
+            "description": "Definisce l'ID della prescrizione",
+            "type": "string"
+          }
+        },
+        "required": ["prescriptionID"]
+      }
+    }
+  }
+}

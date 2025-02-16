@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autorità di Licenza di un medico",
+  "decription": "Schema dell'Autorità di Licenza di un medico",
+  "type": "object",
+  "allOf": {
+    "properties": {
+      "credentialSubject": {
+        "description": "Definisce informazioni aggiuntive sull'argomento descritto dall'ID verificabile",
+        "type": "object",
+        "properties": {
+          "licensingAuthority": {
+            "description": "Organizzazione o Ente responsabile del rilascio della licenza dell'oggetto della credenziale",
+            "type": "string"
+          }
+        },
+        "required": ["licensingAuthority"]
+      }
+    }
+  }
+}
+
+  

@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HealthCareVerifiableCredential",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificatore univoco della prescrizione"
+    },
+    "issuer": {
+      "type": "object",
+      "properties": {
+        "nomeMedico": { "type": "string" },
+        "numeroRegistrazioneMedica": { "type": "string" },
+        "autoritaLicenza": { "type": "string" }
+      },
+      "description": "Informazioni sul medico curante",
+      "required": ["nomeMedico", "numeroRegistrazioneMedica", "autoritaLicenza"]
+    },
+    "subject": {
+      "type": "object",
+      "properties": {
+        "nome": { "type": "string" },
+        "codiceFiscale": { "type": "string" }
+      },
+      "description": "Informazioni sul paziente",
+      "required": ["nome", "codiceFiscale"]
+    },
+    "prescrizione": {
+      "type": "object",
+      "properties": {
+        "idPrescrizione": { "type": "string" },
+        "farmaciPrescritti": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nomeFarmaco": { "type": "string" },
+              "dosaggio": { "type": "string" }
+            },
+            "required": ["nomeFarmaco", "dosaggio"]
+          },
+          "description": "Elenco dei farmaci prescritti",
+          "minItems": 1
+        },
+        "dataEmissione": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dataScadenza": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "description": "Informazioni sulla prescrizione della ricetta",
+      "required": ["idPrescrizione", "farmaciPrescritti", "dataEmissione"]
+    }
+  },
+  "required": ["id", "issuer", "subject", "prescrizione"]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nome Medico",
+  "decription": "Schema del nome di un medico",
+  "type": "object",
+  "allOf": {
+    "properties": {
+      "credentialSubject": {
+        "description": "Definisce informazioni aggiuntive sull'argomento descritto dall'ID verificabile",
+        "type": "object",
+        "properties": {
+          "surname": {
+            "description": "Definisce il cognome dell'oggetto della credenziale",
+            "type": "string"
+          }, 
+          "name": {
+            "description": "Definisce il nome di battesimo dell'oggetto della credenziale",
+            "type": "string"
+          }
+        },
+        "required": [
+          "surname",
+          "name",
+        ]
+      }
+    }
+  }
+}
+
+  
+  
