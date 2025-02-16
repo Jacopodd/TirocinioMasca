@@ -1,0 +1,76 @@
+{
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1"
+    ],
+    "type": "VerifiableCredential",
+    "credentialSchema": {
+      "id": "http://json-schema.org/draft-07/schema#",
+      "title": "HealthCareVerifiableCredential",
+      "properties": {
+        "id": { "type": "string" },
+        "issuer": {
+          "type": "object",
+          "properties": {
+            "nomeMedico": { "type": "string" },
+            "numeroRegistrazioneMedica": { "type": "string" },
+            "autoritaLicenza": { "type": "string" }
+          },
+          "required": ["nomeMedico", "numeroRegistrazioneMedica", "autoritaLicenza"]
+        },
+        "subject": {
+          "type": "object",
+          "properties": {
+            "nome": { "type": "string" },
+            "codiceFiscale": { "type": "string" }
+          },
+          "required": ["nome", "codiceFiscale"]
+        },
+        "prescrizione": {
+          "type": "object",
+          "properties": {
+            "idPrescrizione": { "type": "string" },
+            "farmaciPrescritti": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "nomeFarmaco": { "type": "string" },
+                  "dosaggio": { "type": "string" }
+                },
+                "required": ["nomeFarmaco", "dosaggio"]
+              },
+              "minItems": 1
+            },
+            "dataEmissione": { "type": "string", "format": "date-time" },
+            "dataScadenza": { "type": "string", "format": "date-time" }
+          },
+          "required": ["idPrescrizione", "farmaciPrescritti", "dataEmissione"]
+        }
+      },
+      "required": ["id", "issuer", "subject", "prescrizione"]
+    },
+    "id": "identifier",
+    "issuer": {
+      "id": did,
+      "nomeMedico": nomeMedico,
+      "numeroRegistrazioneMedica": numeroRegistrazione,
+      "autoritaLicenza": autoritaLicenza
+    },
+    "issuanceDate": dataAttuale,
+    "expirationDate": dataScadenza,
+    "credentialSubject": {
+      "id": "did:example:subject",
+      "nome": nomePaziente,
+      "codiceFiscale": codiceFiscale,
+      "prescrizione": {
+        "idPrescrizione": idRicetta,
+        "farmaciPrescritti": [
+          { "nomeFarmaco": "Paracetamolo", "dosaggio": "500mg" },
+          { "nomeFarmaco": "Ibuprofene", "dosaggio": "400mg" },
+          { "nomeFarmaco": "Amoxicillina", "dosaggio": "875mg" }
+        ],
+        "dataEmissione": dataAttuale,
+        "dataScadenza": dataScadenza
+      }
+    }
+  }

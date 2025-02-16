@@ -1,0 +1,40 @@
+{
+    "@context": [
+        "https://www.w3.org/2018/credentials/v1"
+    ],
+    "credentialSchema": {
+        "id": "https://api-conformance.ebsi.eu/trusted-schemas-registry/v3/schemas/z3MgUFUkb722uq4x3dv5yAJmnNmzDFeK5UC8x83QoeLJM",
+        "type": "FullJsonSchemaValidator2021"
+    },
+    "credentialSubject": {
+        "id": "did:key:z2dmzD81cgPx8Vki7JbuuMmFYrWPgYoytykUZ3eyqht1j9KbncWQ657HvXsSjeohBQtb55Y9b1zENGjRhJDpMkdZpmw9TSX8yK47LArgmT1jTTfUv84zQQsjqtmrQgoqzZvHWbVjoJEvdTuCDiQuP2fBsfVWTnGULQJcwUtVycYaYfo3aC"
+    },
+    "expirationDate": "2024-05-03T16:03:02.000Z",
+    "iat": 1714665782,
+    "id": "vc:ebsi:conformance#6ad97968-65df-472b-bd35-c19b800afa41",
+    "issuanceDate": "2024-05-02T16:03:02.000Z",
+    "issuer": {
+        "id": "did:ebsi:zjHZjJ4Sy7r92BxXzFGs7qD"
+    },
+    "proof": {
+        "jwt": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRpZDplYnNpOnpqSFpqSjRTeTdyOTJCeFh6RkdzN3FEI1Q2aVBNVy1rOE80dXdaaWQyOUd3TGUtTmpnNDBFNmpOVDdoZExwSjNaU2cifQ.eyJqdGkiOiJ2YzplYnNpOmNvbmZvcm1hbmNlIzZhZDk3OTY4LTY1ZGYtNDcyYi1iZDM1LWMxOWI4MDBhZmE0MSIsInN1YiI6ImRpZDprZXk6ejJkbXpEODFjZ1B4OFZraTdKYnV1TW1GWXJXUGdZb3l0eWtVWjNleXFodDFqOUtibmNXUTY1N0h2WHNTamVvaEJRdGI1NVk5YjF6RU5HalJoSkRwTWtkWnBtdzlUU1g4eUs0N0xBcmdtVDFqVFRmVXY4NHpRUXNqcXRtclFnb3F6WnZIV2JWam9KRXZkVHVDRGlRdVAyZkJzZlZXVG5HVUxRSmN3VXRWeWNZYVlmbzNhQyIsImlzcyI6ImRpZDplYnNpOnpqSFpqSjRTeTdyOTJCeFh6RkdzN3FEIiwibmJmIjoxNzE0NjY1NzgyLCJleHAiOjE3MTQ3NTIxODIsImlhdCI6MTcxNDY2NTc4MiwidmMiOnsiQGNvbnRleHQiOlsiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiXSwiaWQiOiJ2YzplYnNpOmNvbmZvcm1hbmNlIzZhZDk3OTY4LTY1ZGYtNDcyYi1iZDM1LWMxOWI4MDBhZmE0MSIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJDVFdhbGxldENyb3NzQXV0aG9yaXNlZEluVGltZSJdLCJpc3N1ZXIiOiJkaWQ6ZWJzaTp6akhaako0U3k3cjkyQnhYekZHczdxRCIsImlzc3VhbmNlRGF0ZSI6IjIwMjQtMDUtMDJUMTY6MDM6MDJaIiwiaXNzdWVkIjoiMjAyNC0wNS0wMlQxNjowMzowMloiLCJ2YWxpZEZyb20iOiIyMDI0LTA1LTAyVDE2OjAzOjAyWiIsImV4cGlyYXRpb25EYXRlIjoiMjAyNC0wNS0wM1QxNjowMzowMloiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6ImRpZDprZXk6ejJkbXpEODFjZ1B4OFZraTdKYnV1TW1GWXJXUGdZb3l0eWtVWjNleXFodDFqOUtibmNXUTY1N0h2WHNTamVvaEJRdGI1NVk5YjF6RU5HalJoSkRwTWtkWnBtdzlUU1g4eUs0N0xBcmdtVDFqVFRmVXY4NHpRUXNqcXRtclFnb3F6WnZIV2JWam9KRXZkVHVDRGlRdVAyZkJzZlZXVG5HVUxRSmN3VXRWeWNZYVlmbzNhQyJ9LCJjcmVkZW50aWFsU2NoZW1hIjp7ImlkIjoiaHR0cHM6Ly9hcGktY29uZm9ybWFuY2UuZWJzaS5ldS90cnVzdGVkLXNjaGVtYXMtcmVnaXN0cnkvdjMvc2NoZW1hcy96M01nVUZVa2I3MjJ1cTR4M2R2NXlBSm1uTm16REZlSzVVQzh4ODNRb2VMSk0iLCJ0eXBlIjoiRnVsbEpzb25TY2hlbWFWYWxpZGF0b3IyMDIxIn0sInRlcm1zT2ZVc2UiOnsiaWQiOiJodHRwczovL2FwaS1jb25mb3JtYW5jZS5lYnNpLmV1L3RydXN0ZWQtaXNzdWVycy1yZWdpc3RyeS92NS9pc3N1ZXJzL2RpZDplYnNpOnpqSFpqSjRTeTdyOTJCeFh6RkdzN3FEL2F0dHJpYnV0ZXMvYmNkYjZiYzk1MmM4Yzg5N2NhMWU2MDVmY2UyNWY4MjYwNGM3NmMxNmQ0Nzk3NzAwMTRiN2IyNjJiOTNjMDI1MCIsInR5cGUiOiJJc3N1YW5jZUNlcnRpZmljYXRlIn19fQ.mQJbSVTxsHLWlppQ2mmaXUteKIN6QwB3xNB-wGgcjq207sSg_YkTeOq-TUn19_23yKO4hAiamo3-v1woL1wrbw",
+        "type": "JwtProof2020"
+    },
+    "termsOfUse": {
+        "id": "https://api-conformance.ebsi.eu/trusted-issuers-registry/v5/issuers/did:ebsi:zjHZjJ4Sy7r92BxXzFGs7qD/attributes/bcdb6bc952c8c897ca1e605fce25f82604c76c16d479770014b7b262b93c0250",
+        "type": "IssuanceCertificate"
+    },
+    "type": [
+        "VerifiableCredential",
+        "VerifiableAttestation",
+        "CTWalletCrossAuthorisedInTime"
+    ],
+    "vc": {
+        "expirationDate": "2024-05-03T16:03:02Z",
+        "id": "vc:ebsi:conformance#6ad97968-65df-472b-bd35-c19b800afa41",
+        "issuanceDate": "2024-05-02T16:03:02Z",
+        "issued": "2024-05-02T16:03:02Z",
+        "issuer": "did:ebsi:zjHZjJ4Sy7r92BxXzFGs7qD",
+        "validFrom": "2024-05-02T16:03:02Z"
+    }
+}
