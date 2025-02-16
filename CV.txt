@@ -1,0 +1,17 @@
+CAMPI:
+    - Issuer
+        > Nome Medico
+        > Numero registrazione
+        > autoritaLicenza
+    - Subject
+        > Nome
+        > Codice Fiscale
+    - Prescrizione 
+        > id
+        > Farmaci Prescritti (ARRAY)
+            ->  Nome farmaco
+            -> Dosaggio
+        > Data emissione
+        > Data scadenza
+
+

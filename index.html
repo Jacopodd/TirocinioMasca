@@ -1,0 +1,242 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <link rel="stylesheet" href="css/vc.css"/>
+  <link rel="stylesheet" href="css/result.css"/>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #FFAC49;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      /*height: 100%;*/
+      background-color: #f1b571;
+      border-top-right-radius: 80px;
+      border-top-left-radius: 80px;
+      border: 2px solid #191970;
+    }
+
+    .main-body {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 80%;
+    }
+
+    .connessione {
+      min-height: 300px;
+      min-width: 300px;
+      padding: 10px;
+      font-size: 20px;
+      display: flex; /*flex*/
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 2px solid #191970;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      margin: 500px;
+    }
+
+    .connessione button {
+      margin-top: 40px;
+      background-color: midnightblue;
+      height: 50px;
+      width: 80px;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .conn {
+      font-size: 30px;
+      visibility: none;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      height: 75%;
+    }
+
+    .risultati {
+      width: 500px;
+      margin-top: 30px;
+      visibility: hidden;
+      display: none;
+    }
+
+    .success {
+      background-color: rgb(94, 216, 94);
+      width: 100%;
+      font-size: 25px;
+      text-align: center;
+      display: none;
+    }
+
+    .error {
+      background-color: rgb(220, 60, 60);
+      width: 100%;
+      font-size: 25px;
+      text-align: center;
+      display: none;
+    }
+
+    #riprova {
+      background-color: midnightblue;
+      height: 50px;
+      width: 80px;
+      color: white;
+      border-radius: 10px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Add your site or application content here -->
+  <h1>Tirocinio Masca</h1>
+
+
+  <div class="main">
+
+    <!-- BANNER CORRETTO / SBAGLIATO-->
+    <div class="risultati" id="risultati">
+      <div class="success" id="success">
+        La Presentazione Verificabile (VP) è corretta 
+      </div>
+
+      <div class="error" id="error">
+        La Presentazione Verificabile (VP) è sbagliata 
+      </div>
+    </div>
+
+    
+
+    <div class="main-body">
+      <!-- CARD CONNESSIONE -->
+      <div class="connessione" id="connessione">
+        <p>Clicca sul pulsante per connetterti a Masca</p>
+        <button id="connettiMasca">Connetti</button>
+        <div id="caricamento" style="display: none;">
+          Caricamento in corso...
+        </div>
+      </div>
+
+      <!-- CARD RIEPILOGO --> <!-- CIAO -->
+      <div id="ricetta">
+        
+        <div class="titolo-ricetta">
+          <h3>Ricetta N</h3> 
+          <h3 id="idPrescrizione"></h3>
+        </div>
+
+
+        <div class="date">
+          <div class="emissione">
+            <p>Data Emissione:</p>
+            <p id="data-emissione"></p>
+          </div>
+
+          <div class="scadenza">
+            <p>Data Scadenza:</p>
+            <p id="data-scadenza"></p>
+          </div>
+        </div>
+
+        <div class="paziente-ricetta">
+          <div class="nomePaziente">
+            <p>Paziente:</p>
+            <p id="paziente"></p>
+          </div>
+            
+          <!--<div class="codiceFiscalePaziente">
+            <p>Codice Fiscale:</p>
+            <p id="codiceFiscale"></p>
+          </div>-->
+        </div>
+
+        <div class="farmaci-ricetta" id="farmaci-ricetta">
+          <h4>Farmaci</h4>
+        </div>
+      </div>
+
+      <div id="vc">
+        <div class="info-generali">
+          <div class="medicoVC">
+            <h3>Informazioni Medico</h3>
+            <input type="text" placeholder="Nome Medico" required id="nomeMedico"/>
+            <input type="text" placeholder="Numero di Registrazione" required id="numeroRegistrazione"/>
+            <input type="text" placeholder="Autorità di Licenza" required id="autoritaLicenza"/>
+          </div>
+
+          <div class="pazienteVC">
+            <h3>Informazioni paziente</h3>
+            <input type="text" placeholder="Nome Paziente" required id="nomePaziente"/>
+            <input type="text" placeholder="Codice Fiscale" required id="codiceFiscaleVC"/>
+          </div>
+        </div>
+          
+
+        <div class="ricetta">
+          <h3>Ricetta</h3>
+          <div class="info-ricetta">
+            <input type="number" placeholder="ID Ricetta" required id="idRicetta"/>
+            <input type="date" placeholder="Data scadenza" required id="dataScadenza"/>
+          </div>
+            
+
+          <h3>Farmaci</h3>
+          <div class="farmaci">
+            <input type="text" placeholder="Nome farmaco" required id="nomeFarmaco" style="width: 100px;"/>
+            <input type="text" placeholder="Dosaggio (mg)" required id="dosaggio" style="width: 100px;"/>
+            <input type="submit" value="Aggiungi" id="aggiungiFarmaco">
+          </div>
+        </div>
+
+        <input type="submit" value="Crea Credenziale" id="creaVC"/>
+      </div>
+    </div>
+
+    
+    
+  </div>
+
+  <script src="js/app.js" type="module"></script>
+
+</body>
+
+</html>
